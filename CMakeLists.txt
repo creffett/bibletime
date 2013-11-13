@@ -189,7 +189,7 @@ IF (Qt5Core_FOUND)
         ${ICU_LIBRARIES} # optional, empty if not found
         ${ICU_I18N_LIBRARIES} # optional, empty if not found
         ${ZLIB_LIBRARIES} # optional, empty if not found
-        ${Sword_LDFLAGS}
+        ${Sword_LIBRARIES}
     )
     qt5_use_modules(${EXECUTABLE_NAME} ${Qt5RequiredModules})
 ELSE (Qt5Core_FOUND)
@@ -201,9 +201,10 @@ ELSE (Qt5Core_FOUND)
         ${ICU_LIBRARIES} # optional, empty if not found
         ${ICU_I18N_LIBRARIES} # optional, empty if not found
         ${ZLIB_LIBRARIES} # optional, empty if not found
-        ${Sword_LDFLAGS}
+        ${Sword_LIBRARIES}
     )
 ENDIF (Qt5Core_FOUND)
+SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} ${Sword_LIBRARY_DIRS})
 
 SET(BibleTime_CFLAGS "${Sword_CFLAGS_OTHER}")
 SET(BibleTime_LDFLAGS "")
